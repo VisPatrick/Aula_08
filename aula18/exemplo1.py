@@ -128,7 +128,7 @@ try:
 
         barras = ax[0].bar(dados_inferiores['munic'], dados_inferiores['roubo_veiculo'], color='blue')
         ax[0].bar_label(barras, label_type='edge', padding=3, fontsize=8)
-        ax[0].tick_params(axis='x', rotation=75, labelsize=8)
+        ax[0].tick_params(axis='x', rotation=65, labelsize=8)
 
         ax[1].set_title('Outliers Superiores')
         ax[0].set_title('Menos Roubos')
@@ -139,7 +139,10 @@ try:
     if not df_roubo_veiculo_outliers_superiores.empty:
         dados_superiores = df_roubo_veiculo_outliers_superiores.sort_values(by='roubo_veiculo', ascending=True)
 
-        ax[1].barh(dados_superiores['munic'], dados_superiores['roubo_veiculo'], color='red')
+        barras = ax[1].barh(dados_superiores['munic'], dados_superiores['roubo_veiculo'], color='red')
+        barras = ax[1].barh(dados_superiores['munic'], dados_superiores['roubo_veiculo'], color='black')
+        ax[1].bar_label(barras, fmt='%.0f', label_type='edge', fontsize=8, padding=1)  
+        ax[1].tick_params(axis='y', labelsize=8)
     else:
         ax[1].text(0.5, 0.5, 'Não há outliers superiores', ha='center', va='center', fontsize=8)
         ax[1].set_title('Outliers Superiores')
