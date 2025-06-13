@@ -226,7 +226,9 @@ try:
 
     ax.boxplot(array_roubo_veiculo, vert=False)     # cria o boxplot com os dados de roubos de veículos 
 
-    ax.boxplot(array_roubo_veiculo, vert=False, patch_artist=True, boxprops=dict(facecolor='lightblue', color='blue'), medianprops=dict(color='green')) #   personaliza o boxplot com cores
+    ax.boxplot(array_roubo_veiculo, vert=False, showmeans=True)     # adiciona a média ao boxplot
+
+
 
     plt.tight_layout()  #  ajusta o layout do gráfico
 
@@ -234,5 +236,5 @@ try:
 
 except Exception as e:
 
-    print(f"Erro: {e}")
+    print(f"Erro ao plotar: {e}")
     exit()
